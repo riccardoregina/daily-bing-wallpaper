@@ -71,8 +71,8 @@ Note that the wallpaper will not be downloaded if it already exists in the speci
 ```
 
 ## ML4W dotfiles integration
-You can use this script inside a ML4W (https://github.com/mylinuxforwork) setup, but be careful if you want to execute it at startup by placing it in the hyprland configuration: since ML4W already executes a wallpaper restore script (restore-wallpaper.sh) at startup, a race condition on the waypaper config file could occurr, causing a corrupted waypaper config file. To avoid this, you can either:
-+ run this script after a sleep e.g. `exec-once = sleep 5 && path/to/set-daily-bing-wallpaper.sh` [RECOMMENDED]
+You can use this script inside a ML4W (https://github.com/mylinuxforwork) setup, but be careful if you want to execute it at startup by placing it in the hyprland configuration: since ML4W already executes a wallpaper restore script (restore-wallpaper.sh) at startup, a race condition on the waypaper config file may occurr, causing a corrupted waypaper config file. To avoid this, you can either:
++ run this script after a sleep e.g. `exec-once = sleep 5 && path/to/set-daily-bing-wallpaper.sh` [RECOMMENDED];
 + replace the restore-wallpaper.sh ML4W script with this script. However, it is not generally recommended to change the default ML4W scripts.
 
 ## License
