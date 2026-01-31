@@ -61,12 +61,12 @@ fi
 BING_URL="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
 [[ $debug == true ]] && echo "BING_URL=$BING_URL"
 BING_RESPONSE=$(curl -s "$BING_URL")
-[[ $debug == true ]] && echo "BING_RESPONSE=$BING_RESPONSE"
 if [[ $? -ne 0 ]]; then
 	echo "Error: failed to fetch data from the Bing server" >&2
 	echo "Rerun the script in debug mode for more info" >&2
 	exit 1
 fi
+[[ $debug == true ]] && echo "BING_RESPONSE=$BING_RESPONSE"
 IMAGE_URL=$(echo "$BING_RESPONSE" | grep -oP '"url":"\K[^"]+' | sed 's/^/https:\/\/www.bing.com/' | sed 's/1920x1080/UHD/')
 [[ $debug == true ]] && echo "IMAGE_URL=$IMAGE_URL"
 if [[ -z "$IMAGE_URL" ]]; then
